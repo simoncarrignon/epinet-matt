@@ -10,9 +10,10 @@ paramsfolder <- "params"
 #where the networks are located
 networksfolder <-file.path(paramsfolder,"networks2")
 
-#where you want to save the results (already created)
+#where you want to save the results 
 outputfolder<-file.path("output","results4")
-
+if(!dir.exists(outputfolder)) dir.create(outputfolder,recursive = T) #if output folder doesn't exists, create it.
+    
 source(file.path(sourcefolder,"FunctionsForHealthPaper.R"))
 
 params1<-read.csv(file.path(paramsfolder,"model_params.csv"))
@@ -257,7 +258,7 @@ for(i in 1:length(statuses)){
 OUT<-list(mod_concerns,mod_exps,mod_infs,mod_hosps,l_hea)
 names(OUT)<-c("concern","exps","infs","hosps","he")
 
-saveRDS(OUT, (outputfolder,paste0("nets",params1$NetSelect[nt],"mods",params2$ModSelect[md],"rep",r,".RDS")))
+saveRDS(OUT, file.path(outputfolder,paste0("nets",params1$NetSelect[nt],"mods",params2$ModSelect[md],"rep",r,".RDS")))
 
 ###################################
 ###################################
