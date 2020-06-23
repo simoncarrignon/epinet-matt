@@ -4,22 +4,22 @@ library(igraph)
 library(boot)
 
 #where functions and parameter csvs are located
-path <- "."
-path0<- path
+sourcefolder <- "R/"
+paramsfolder <- "params"
 
 #where the networks are located
-path1<-file.path(path,"networks2/")
+networksfolder <-file.path(paramsfolder,"networks2/")
 
 #where you want to save the results (already created)
-path3<-file.path(path,"results4/")
+outputfoldure<-file.path("output/","results4/")
 
-source(paste0(path0,"FunctionsForHealthPaper.R"))
+source(file.path(sourcefolder,"FunctionsForHealthPaper.R"))
 
-params1<-read.csv(paste0(path0,"model_params.csv"))
-params2<-read.csv(paste0(path0,"model_params2.csv"))
-params3<-read.csv(paste0(path0,"he_params.csv"))
+params1<-read.csv(file.path(paramsfolder,"model_params.csv"))
+params2<-read.csv(file.path(paramsfolder,"model_params2.csv"))
+params3<-read.csv(file.path(paramsfolder,"he_params.csv"))
 
-net_params<-read.csv(paste0(path0,"network_params.csv"))
+net_params<-read.csv(file.path(networksfolder,"network_params.csv"))
 
 #h_che<-1
 
