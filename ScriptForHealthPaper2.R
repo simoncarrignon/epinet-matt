@@ -4,14 +4,14 @@ library(igraph)
 library(boot)
 
 #where functions and parameter csvs are located
-sourcefolder <- "R/"
+sourcefolder <- "R"
 paramsfolder <- "params"
 
 #where the networks are located
-networksfolder <-file.path(paramsfolder,"networks2/")
+networksfolder <-file.path(paramsfolder,"networks2")
 
 #where you want to save the results (already created)
-outputfoldure<-file.path("output/","results4/")
+outputfolder<-file.path("output","results4")
 
 source(file.path(sourcefolder,"FunctionsForHealthPaper.R"))
 
@@ -19,7 +19,7 @@ params1<-read.csv(file.path(paramsfolder,"model_params.csv"))
 params2<-read.csv(file.path(paramsfolder,"model_params2.csv"))
 params3<-read.csv(file.path(paramsfolder,"he_params.csv"))
 
-net_params<-read.csv(file.path(networksfolder,"network_params.csv"))
+net_params<-read.csv(file.path(paramsfolder,"network_params.csv"))
 
 #h_che<-1
 
@@ -39,8 +39,8 @@ pop_info<-pop_gen(pop_size,ncomms,prop_belA,prop_old,prop_young,prop_child)
 
 ############################################
 
-dis_input<-readRDS(paste0(path1,params1[nt,3],"net_and_parents.RDS"))
-info_input<-readRDS(paste0(path1,params1[nt,2],"net_and_parents.RDS"))
+dis_input<-readRDS(file.path(networksfolder,paste0(params1[nt,3],"net_and_parents.RDS")))
+info_input<-readRDS(file.path(networksfolder,paste0(params1[nt,2],"net_and_parents.RDS")))
 
 parents<-info_input[[2]]
 dis_mat<-dis_input[[1]]
@@ -257,7 +257,7 @@ for(i in 1:length(statuses)){
 OUT<-list(mod_concerns,mod_exps,mod_infs,mod_hosps,l_hea)
 names(OUT)<-c("concern","exps","infs","hosps","he")
 
-saveRDS(OUT, paste0(path3,"nets",params1$NetSelect[nt],"mods",params2$ModSelect[md],"rep",r,".RDS"))
+saveRDS(OUT, (outputfolder,paste0("nets",params1$NetSelect[nt],"mods",params2$ModSelect[md],"rep",r,".RDS")))
 
 ###################################
 ###################################
