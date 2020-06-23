@@ -1,0 +1,10 @@
+NetSelect,NetworkID_info,NetworkID_dis,Comments1,Comments2,Comments3
+2,28,13,info network less dense,0.4 - 0.4,no homophily of either
+5,23,8,info network less dense,0.6 -0.6,no homophily of either
+8,28,8,info network less dense,0.4 - 0.6,no homophily of either
+11,88,73,info network less dense,0.4 - 0.4,high homophily of both
+14,83,68,info network less dense,0.6 -0.6,high homophily of both
+17,88,68,info network less dense,0.4 - 0.6,high homophily of both
+20,88,13,info network less dense,0.4 - 0.4,homophily on info only
+23,83,8,info network less dense,0.6 -0.6,homophily on info only
+26,88,8,info network less dense,0.4 - 0.6,homophily on info only
